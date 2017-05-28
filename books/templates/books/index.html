@@ -1,0 +1,78 @@
+{% extends 'books/base.html' %}
+{% block body %}
+
+<link rel="stylesheet" type="text/css" href="books/style.css">
+<div class=" col-md-12 jumbotron">
+  <h1>My Asset Portfolio</h1>
+  <p>The intelligent portfolio application</p>
+</div>
+<div class=" col-md-10 jumbotron" name="fig">
+	<div class="col-md-12 span-2">
+  <h3>Testing ground</h3>
+  <p>Current BTC Price: {{BTC}} $ </p>
+  <p>Current ETH Price: {{ETH}} $ </p>
+  <p>Current Microsoft Stock Price: {{MicrosoftStock}} $</p>
+  <p>Some test variable: {{var2}}</p>
+
+
+  </div>
+</div>
+
+<ul>
+	{% for book in object_list %}
+	<!--<li><a href="{% url 'books:detail' book.id %}">{{book.name}}</a></li>
+	<img src="{{book.book_image}}"/>-->
+
+	<!--new code starts here-->
+	<div class="col-lg-3 col-md-4 col-sm-6 " >
+  		<div class = "thumbnail">
+         <img src = "{{book.book_image}}" alt = "Generic placeholder thumbnail">
+
+
+    	  <div class = "caption">
+      	   <h3>{{book.name}}</h3>
+      	   <p>{{book.author}}</p>
+
+      	   <p>
+      	      <a href = "{% url 'books:detail' book.id %}" class = "btn btn-primary" role = "button">
+      	         Details
+     	       </a>
+
+     	       <a href = "#" class = "btn btn-danger" role = "button">
+     	          Delete
+     	       </a>
+         </p>
+         </div>
+      </div>
+  	</div>
+	<!--new code ends here-->
+
+	{% endfor %}
+</ul>
+
+    	<!--Portfolio Tracker-->
+	<div class="col-lg-3 col-md-4 col-sm-6 " style="margin-top: 300px">
+  		<div class = "thumbnail">
+         <img src = "#" alt = "Generic placeholder thumbnail">
+
+
+    	  <div class = "caption">
+      	   <h3>Bitcoin</h3>
+      	   <p>Current Price: {{BTC}} $ </p>
+           <p>Price acquired: 900 $ </p>
+
+      	   <p>
+      	      <a href = "#" class = "btn btn-primary" role = "button">
+      	         Details
+     	       </a>
+
+     	       <a href = "#" class = "btn btn-danger" role = "button">
+     	          Delete
+     	       </a>
+         </p>
+         </div>
+      </div>
+  	</div>
+	<!--new code ends here-->
+
+{% endblock %}
